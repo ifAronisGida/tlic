@@ -32,24 +32,28 @@ public class Login extends POM {
 
     public void fillUserName(String userName){
         if (userName != null){
+            waitForClickable(userNameField);
             userNameField.sendKeys(userName);
         }
     }
 
     public void fillPassword(String password){
         if (password != null){
+            waitForClickable(passwordField);
             passwordField.sendKeys(password);
         }
     }
 
     public void fullLogin(String username, String password){
         if (password != null && username != null){
-            userNameField.sendKeys(username);
-            passwordField.sendKeys(password);
+            fillUserName(username);
+            fillPassword(password);
+            loginButton.click();
         }
     }
 
     public String getUsername(){
+        wait(loggedInUsername);
         return loggedInUsername.getText();
     }
 }
