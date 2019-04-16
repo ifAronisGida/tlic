@@ -7,10 +7,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class POM {
 
-protected WebDriver driver;
-protected WebDriverWait wait;
+ WebDriver driver;
+ WebDriverWait wait;
 
-public POM (WebDriver driver) {
+ POM (WebDriver driver) {
     this.driver = driver;
     wait = new WebDriverWait(driver, 30);
 }
