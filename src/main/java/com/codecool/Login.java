@@ -24,20 +24,20 @@ public class Login extends POM {
         PageFactory.initElements(driver,this);
     }
 
-    private final String LOGIN_URL = "http://totallylegit.xyz/login";
+    public final String LOGIN_URL = "http://totallylegit.xyz/login";
 
     public void openLoginPage(){
         driver.get(LOGIN_URL);
     }
 
-    public void fillUserName(String userName){
+    private void fillUserName(String userName){
         if (userName != null){
             waitForClickable(userNameField);
             userNameField.sendKeys(userName);
         }
     }
 
-    public void fillPassword(String password){
+    private void fillPassword(String password){
         if (password != null){
             waitForClickable(passwordField);
             passwordField.sendKeys(password);
@@ -55,5 +55,9 @@ public class Login extends POM {
     public String getUsername(){
         wait(loggedInUsername);
         return loggedInUsername.getText();
+    }
+
+    public String getURL(){
+        return driver.getCurrentUrl();
     }
 }
