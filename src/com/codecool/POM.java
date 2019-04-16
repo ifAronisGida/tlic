@@ -12,7 +12,7 @@ protected WebDriverWait wait;
 
 public POM (WebDriver driver) {
     this.driver = driver;
-    wait = new WebDriverWait(driver, 30);
+    wait = new WebDriverWait(driver, 10);
 }
 
 public WebDriver getDriver() {
@@ -26,6 +26,7 @@ public void close() {
 public void wait (WebElement element) {
     wait.until(ExpectedConditions.visibilityOf(element));
 }
+
 
 
 
