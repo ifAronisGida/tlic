@@ -19,6 +19,12 @@ public class Login extends POM {
     @FindBy(xpath = "/html/body/app-root/app-main-layout/div/div/app-navbar/nav/div/div[2]/ul/li[5]")
     private WebElement loggedInUsername;
 
+    @FindBy(className = "alert")
+    private WebElement invalidWarning;
+
+    @FindBy(xpath = "/html/body/app-root/app-login/div/form/div[2]/div/div")
+    private WebElement shortPwWarning;
+
     public Login(WebDriver driver){
         super(driver);
         PageFactory.initElements(driver,this);
@@ -55,6 +61,15 @@ public class Login extends POM {
     public String getUsername(){
         wait(loggedInUsername);
         return loggedInUsername.getText();
+    }
+
+    public String getInvalidWarning(){
+        wait(invalidWarning);
+        return invalidWarning.getText();
+    }
+
+    public String getShortPwWarning() {
+        return shortPwWarning.getText();
     }
 
     public String getURL(){
