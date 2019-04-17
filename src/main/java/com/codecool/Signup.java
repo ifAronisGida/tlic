@@ -66,6 +66,10 @@ public class Signup extends POM {
         return getPageSource().contains(SUCCESS_STRING);
     }
 
+    public boolean isInvalidSignup() {
+        return registerButton.isDisplayed();
+    }
+
     public void signup(String name, String userName, String email, String password) {
         goToSignupPage();
         writeName(name);

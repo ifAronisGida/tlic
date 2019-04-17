@@ -25,7 +25,6 @@ public class TestLogin {
     @ParameterizedTest
     @CsvFileSource(resources = "/valid_login.csv", numLinesToSkip = 1)
      void loginSuccesful(String username, String password, String expectedresult){
-        login.openLoginPage();
         login.fullLogin(username, password);
         assertEquals(expectedresult, login.getUsername());
     }
@@ -33,7 +32,6 @@ public class TestLogin {
     @ParameterizedTest
     @CsvFileSource(resources = "/invalid_login.csv", numLinesToSkip = 1)
      void loginFailure(String username, String password){
-        login.openLoginPage();
         login.fullLogin(username,password);
         assertEquals(login.getURL(), login.LOGIN_URL);
     }

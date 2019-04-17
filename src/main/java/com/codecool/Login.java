@@ -46,9 +46,11 @@ public class Login extends POM {
 
     public void fullLogin(String username, String password){
         if (password != null && username != null){
+            openLoginPage();
             fillUserName(username);
             fillPassword(password);
             loginButton.click();
+            wait(loggedInUsername);
         }
     }
 

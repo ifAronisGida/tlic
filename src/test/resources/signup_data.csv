@@ -1,11 +1,7 @@
-name,user_name,email,password
-aron1,arnold1,email@email.com,arn1arn
-aron2,arnold2	,email@email.com,arn2arn
-aron3,arnold3,email@email.com,arn3arn
-aron4,arnold4,email@email.com,arn4arn
-aron5,arnold5,email@email.com,arn5arn
-aron6,arnold6,email@email.com,arn6arn
-aron7,arnold7,email@email.com,arn7arn
-aron8,arnold8,email@email.com,arn8arn
-aron9,arnold9,email@email.com,arn9arn
-aron0,arnold0,email@email.com,arn0arn
+name,user_name,email,password,expected
+aron1,arnold1,email@email.com,arn1arn,success
+aron2,arnold2,email@email.com,arn2arn,success
+aron3,arnold3,email@email.com,arn3arn,success
+aron4,arnold4,emailemailcom,arn4arn,fail
+aron0,arnold0,email@email.com,arn0,fail
+
