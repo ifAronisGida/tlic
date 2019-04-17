@@ -1,11 +1,13 @@
-import com.codecool.Driver;
-import com.codecool.Login;
+package com.codecool;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+
 
 public class TestLogin {
     private Login login;
@@ -21,7 +23,7 @@ public class TestLogin {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "valid_login.csv", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/valid_login.csv", numLinesToSkip = 1)
      void loginSuccesful(String username, String password, String expectedresult){
         login.openLoginPage();
         login.fullLogin(username, password);
@@ -29,7 +31,7 @@ public class TestLogin {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "invalid_login.csv", numLinesToSkip = 1)
+    @CsvFileSource(resources = "/invalid_login.csv", numLinesToSkip = 1)
      void loginFailure(String username, String password){
         login.openLoginPage();
         login.fullLogin(username,password);

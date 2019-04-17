@@ -22,7 +22,11 @@ public class Signup extends POM {
     @FindBy(css = "body > app-root > app-register > div > form > div:nth-child(5) > button")
     private WebElement registerButton;
 
+    @FindBy(xpath = "/html/body/app-root/app-register/div[contains(text(),'registration is successful.')]")
+    private WebElement successText;
+
     private static final String SIGNUP_URL = "http://totallylegit.xyz/signup";
+    public static final String SUCCESS_STRING = "Your registration is successful. Please login!";
 
     public Signup (WebDriver driver) {
         super(driver);
@@ -51,6 +55,15 @@ public class Signup extends POM {
 
     public void clickRegister() {
         registerButton.click();
+    }
+
+    public String getPageSource() {
+        return driver.getPageSource();
+    }
+
+    public boolean validateSignup() {
+        wait(successText);
+        return getPageSource().contains(SUCCESS_STRING);
     }
 
     public void signup(String name, String userName, String email, String password) {
