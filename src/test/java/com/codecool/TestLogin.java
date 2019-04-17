@@ -35,7 +35,6 @@ public class TestLogin {
      void loginFailure(String username, String password){
         login.openLoginPage();
         login.fullLogin(username,password);
-//        assertEquals(login.getURL(), login.LOGIN_URL);
         assertEquals("Login failed: Error -> Unauthorized", login.getInvalidWarning());
     }
 }
